@@ -11,9 +11,21 @@ export default function cards() {
     const [postPerPage,setPostPerPage] = useState(4);
 
     const handelSearch = (e) =>{
-        setSearchItem(e.target.value);
-        console.log(searchItem);
+      setSearchItem(e.target.value);
+      console.log(searchItem);
+  }
+
+    // debounce
+    const debounce = (func,wait) =>{
+      let timerId
+      return (...args) =>{
+        clearTimeout(timerId);
+        timerId = setTimeout(()=> func(...args),wait)
+      }
     }
+    const debounceCall = debounce(handelSearch,400);
+
+
 
     const lastPostIndex = currentPage * postPerPage;
     const firstPostIndex = lastPostIndex - postPerPage;
@@ -33,7 +45,7 @@ export default function cards() {
       name ='search'
       placeholder='Search ...'
       className='search'
-      onChange={handelSearch}
+      onChange={debounceCall}
       />
 
       {/* Products */}
