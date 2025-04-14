@@ -45,13 +45,15 @@ export default function cards() {
         }
       </div>
 
-      <Pagination 
-      className ='fixPos'
-      totalPosts = {filterData.length} 
-      postPerPage = {postPerPage} 
-      setCurrentPage ={setCurrentPage}
-      currentPage = {currentPage}
-      />
+      <div>
+        <Pagination 
+        className ='fixPos'
+        totalPosts = {filterData.length} 
+        postPerPage = {postPerPage} 
+        setCurrentPage ={setCurrentPage}
+        currentPage = {currentPage}
+        />
+      </div>
       
     </div>
 
