@@ -27,6 +27,7 @@ export default function cards() {
   return (
     <div className='wrapper'>
 
+      {/* Input Bar */}
       <input
       type='text'
       name ='search'
@@ -35,6 +36,7 @@ export default function cards() {
       onChange={handelSearch}
       />
 
+      {/* Products */}
       <div className='cards'>
         {
             currentData.map((data,index)=>{
@@ -45,6 +47,7 @@ export default function cards() {
         }
       </div>
 
+      {/* Pagination */}
       <div>
         <Pagination 
         className ='fixPos'
