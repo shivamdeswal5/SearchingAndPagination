@@ -18,7 +18,11 @@ export default function cards() {
     const lastPostIndex = currentPage * postPerPage;
     const firstPostIndex = lastPostIndex - postPerPage;
 
-    const currentData = data.slice(firstPostIndex,lastPostIndex);
+    const filterData = data.filter((item)=>{
+      return searchItem.toLocaleLowerCase() === '' ? item : item.category.toLocaleLowerCase().includes(searchItem);
+    });
+
+    const currentData = filterData.slice(firstPostIndex,lastPostIndex);
 
   return (
     <div className='wrapper'>
@@ -33,9 +37,7 @@ export default function cards() {
 
       <div className='cards'>
         {
-            data.filter((item)=>{
-                return searchItem.toLocaleLowerCase() === '' ? item : item.category.toLocaleLowerCase().includes(searchItem);
-            }).map((data,index)=>{
+            currentData.map((data,index)=>{
                 return (
                     <CardItem id = {data.id} data = {data} cardIndex = {index}/>
                 )
@@ -45,10 +47,11 @@ export default function cards() {
 
       <Pagination 
       className ='fixPos'
-      totalPosts = {data.length} 
+      totalPosts = {filterData.length} 
       postPerPage = {postPerPage} 
       setCurrentPage ={setCurrentPage}
-      currentPage = {currentPage}/>
+      currentPage = {currentPage}
+      />
       
     </div>
 
