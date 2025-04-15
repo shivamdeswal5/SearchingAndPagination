@@ -25,8 +25,6 @@ export default function cards() {
     }
     const debounceCall = debounce(handelSearch,400);
 
-
-
     const lastPostIndex = currentPage * postPerPage;
     const firstPostIndex = lastPostIndex - postPerPage;
 
@@ -47,7 +45,6 @@ export default function cards() {
       className='search'
       onChange={debounceCall}
       />
-
       {/* Products */}
       <div className='cards'>
         {
@@ -58,7 +55,6 @@ export default function cards() {
             })
         }
       </div>
-
       {/* Pagination */}
       <div>
         <Pagination 

@@ -5,8 +5,6 @@
 }
 
 .pagination button {
-    width: 40px;
-    height: 40px;
     font-weight: 600;
     font-size: 16px;
     margin: 0 10px;
@@ -14,6 +12,7 @@
     cursor: pointer;
     color: black;
     border-color: #eee;
+    padding: 1rem;
 }
 
 .pagination button:hover {
@@ -25,4 +24,9 @@
     border-color: #101010;
     background: #ffe400;
     color: #101010;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }

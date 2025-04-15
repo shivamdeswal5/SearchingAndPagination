@@ -7,6 +7,7 @@ export default function CardItem({data,dataIndex}) {
 
   return (
     <div className='card-item'>
+      
       <div className='thumbnail'>
         <img src={imgUrl2}/>
       </div>
